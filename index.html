@@ -1,0 +1,238 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Pidgin-lwqq by xiehuc</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Pidgin-lwqq</h1>
+        <p>a pidgin plugin based on lwqq, a excellent safe useful library for webqq protocol</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/xiehuc/pidgin-lwqq" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/xiehuc/pidgin-lwqq/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/xiehuc/pidgin-lwqq/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>pidgin-lwqq</h1>
+
+<h2>Intro</h2>
+
+<p>provide qq protocol for pidgin on linux. based on webqq service.<br>
+ a pidgin plugin based on <a href="https://github.com/mathslinux/lwqq">lwqq</a>.
+ a excellent compact useful library for webqq protocol.<br>
+ since the name may confused. lwqq is linux webqq</p>
+
+<p>License: GPLv3</p>
+
+<h2>Quick Install</h2>
+
+<h3>Building From Source</h3>
+
+<pre><code>cmake .. 
+make
+sudo make install
+</code></pre>
+
+<h3>Building With Ubuntu-Online-Account Support</h3>
+
+<pre><code>cmake .. -DUOA=On
+make
+sudo make install
+</code></pre>
+
+<h2>Build Option</h2>
+
+<ul>
+<li>
+<p>UOA[=Off] </p>
+
+<blockquote>
+<p>Ubuntu-Account-Online Support</p>
+</blockquote>
+</li>
+<li>
+<p>WITH_LIBEV[=On]</p>
+
+<blockquote>
+<p>enable libev .<br>
+put all http io waiting to libev thread.
+avoid block main ui thread. so would be smoothly.</p>
+</blockquote>
+</li>
+<li>
+<p>VERBOSE[=0]</p>
+
+<blockquote>
+<p>set the verbose level .0 means no verbose,3 means max verbose.</p>
+</blockquote>
+</li>
+</ul><p>See <a href="https://github.com/xiehuc/pidgin-lwqq/wiki">wiki</a> for the detail install guide.</p>
+
+<h3>Notice</h3>
+
+<p><em>recommand libcurl &gt;=7.22.0</em></p>
+
+<h2>Function list</h2>
+
+<h3>pidgin support</h3>
+
+<ul>
+<li>send / recv buddy|group|discu messages</li>
+<li>send / recv picture messages</li>
+<li>send / recv qq face (you should use webqq faces theme in settings)</li>
+<li>avatar</li>
+<li>change buddy markname</li>
+<li>change buddy category</li>
+<li>confirm buddy added request</li>
+<li>visit buddy qzone</li>
+<li>group whisper message</li>
+<li>change status/business card</li>
+<li>support multi webqq account</li>
+<li>support send/recv offline file</li>
+<li>support font style</li>
+<li>support block group message</li>
+<li>support recv file trans</li>
+<li>support local qqnumber cache</li>
+<li>support add friend/group</li>
+</ul><h3>empathy support (via telepathy-haze)</h3>
+
+<ul>
+<li>send / recv text messages</li>
+<li>avatar</li>
+<li>
+<strong>not</strong> support local qqnumber cache</li>
+</ul><h2>Known Issue</h2>
+
+<ul>
+<li>send picture abnormal when libcurl &lt; = 7.22.0</li>
+<li>telepathy-haze itself doesn't support group or picture.</li>
+<li>telepathy-haze store buddy list on /tmp/haze-XXX.
+every time startup recreate every thing.</li>
+</ul><h2>简  介</h2>
+
+<p>为linux的pidgin提供qq协议,基于webqq服务.
+是在<a href="https://github.com/mathslinux/lwqq">lwqq</a>基础上开发而来.
+lwqq库是一个非常严谨有效的webqq协议的库.<br>
+lwqq 即是 linux webqq 之意</p>
+
+<h2>快速安装</h2>
+
+<h3>从源代码编译</h3>
+
+<pre><code>cmake ..
+make
+sudo make install
+</code></pre>
+
+<h3>编译 Ubuntu-Account-Online 支持</h3>
+
+<pre><code>cmake .. -DUOA=On
+make
+sudo make install
+</code></pre>
+
+<h3>编译选项</h3>
+
+<ul>
+<li>
+<p>UOA[=Off] </p>
+
+<blockquote>
+<p>Ubuntu-Account-Online Support</p>
+</blockquote>
+</li>
+<li>
+<p>WITH_LIBEV[=On]</p>
+
+<blockquote>
+<p>enable libev .<br>
+put all http io waiting to libev thread.
+avoid block main ui thread. so would be smoothly.</p>
+</blockquote>
+</li>
+</ul><p>将全部的http io等待放到一个单独的线程中.
+避免卡UI线程.能够提高程序的响应和体验.</p>
+
+<pre><code>cmake .. -DWITH_LIBEV=On
+make
+sudo make install
+</code></pre>
+
+<h2>功能列表</h2>
+
+<h3>pidgin</h3>
+
+<ul>
+<li>支持发送接受 好友|群|讨论组 消息</li>
+<li>支持发送接受图片</li>
+<li>支持发送接受表情(在设置中使用webqq表情主题)</li>
+<li>支持头像</li>
+<li>支持设置好友备注</li>
+<li>支持更改好友分组</li>
+<li>支持确认添加好友请求</li>
+<li>支持群的临时会话</li>
+<li>支持访问QQ空间</li>
+<li>支持更改在线状态|群名片</li>
+<li>支持多账户登录</li>
+<li>支持发送接受离线文件</li>
+<li>支持文本样式</li>
+<li>支持群消息屏蔽</li>
+<li>支持接受文件传输</li>
+<li>支持本地QQ号缓存机制</li>
+<li>支持添加好友|群</li>
+</ul><h3>empathy support (via telepathy-haze)</h3>
+
+<ul>
+<li>支持发送接受文本消息</li>
+<li>支持头像</li>
+<li>
+<strong>不</strong> 支持本地QQ号缓存机制</li>
+</ul><h3>core</h3>
+
+<h2>已知问题</h2>
+
+<ul>
+<li>当libcurl版本低于7.22.0时可能造成图片发送失败</li>
+</ul><p><em>telepathy-haze 本身不支持群组聊天和图片显示.比较纠结.</em></p>
+
+<p><strong>注意:</strong>
+telepathy-haze 比较坑爹.居然不保存好友列表.!!
+它只在/tmp/haze-XXXXXX 存放下文件.
+所以速度非常受影响.
+不知道为什么要这样设计.</p>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/xiehuc">xiehuc</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
